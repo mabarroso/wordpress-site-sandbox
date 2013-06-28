@@ -22,6 +22,6 @@ echo "Setting Apache..."
 	/etc/init.d/apache2 restart >/dev/null 2>&1
 
 echo "Setting Wordpress site..."
-  ln -s /vagrant/ /var/www/simply
+  ln -s /vagrant/ /var/www/wordpress-site-sandbox
   mysqladmin create sanboxwordpresssimply -u root --password=vagrant
   /vagrant/tools/restoredatabase.sh
