@@ -18,6 +18,7 @@
   
 ## Vagrant instalation
   ```shell
+    git clone https://github.com/mabarroso/wordpress-site-sandbox.git
     vagrant up
   ```
   
