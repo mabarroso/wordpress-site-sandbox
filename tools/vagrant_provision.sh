@@ -16,6 +16,10 @@ echo "Setting Apache..."
 	# Enable mod_rewrite	
 	a2enmod rewrite >/dev/null 2>&1
 
+	# Allow .htaccess
+	sed "s/AllowOverride None/AllowOverride All/g" /etc/apache2/sites-enabled/000-default > /tmp/000-default
+	cp /tmp/000-default /etc/apache2/sites-enabled/000-default
+
 	# Add www-data to vagrant group
 	usermod -a -G vagrant www-data >/dev/null 2>&1
 
@@ -24,5 +28,5 @@ echo "Setting Apache..."
 
 echo "Setting Wordpress site..."
   ln -s /vagrant/ /var/www/wordpress-site-sandbox
-  mysqladmin create sanboxwordpresssimply -u root 
+  mysqladmin create sanboxwordpresssimply -u root
   /vagrant/tools/restoredatabase.sh
